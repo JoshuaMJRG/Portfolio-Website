@@ -47,3 +47,42 @@ command was for, it started making sense.
 ### Next session
 Plan what I want the site to look like and start building it. Still deciding
 between building it from scratch or using a template.
+
+## Session 2 – 5–6 November 2026
+
+### What I did
+- Fixed my Git setup so I could push to GitHub
+- Chose a template (Waldo by StyleShout), audited it, and brought it into my repo
+- Replaced the template's identity with mine: name, intro and About section
+- Removed the template's fake stats and personal details
+- Pushed the first version of my site to GitHub
+
+### What I learned
+- **Two Gits on one computer.** VS Code's terminal was running a different
+  copy of Git than the one I'd installed. It was so annoying until I realised
+  I had to change which terminal I was using. `which git` shows which program
+  actually runs when you type a command. The shell searches a list of folders
+  called PATH, and the first match wins.
+- **Credential managers.** GitHub doesn't accept passwords in the terminal. A
+  credential manager signs in through the browser and stores a token securely,
+  so no password is typed or saved in plain text.
+- **Reading a licence.** Waldo is free, but I must credit StyleShout on my site
+  and can't redistribute it unchanged, so I customised it before pushing.
+- **Auditing third-party code.** I used `grep -rn "http" css js` to find every
+  web address in the template's code. Most were just comments crediting other
+  tools, but two loaded things from the internet. The one that surprised me:
+  Google Fonts, which lets Google see every visitor's IP address. I'll
+  self-host the fonts instead.
+
+### Why I chose a template
+As much as I wanted to design it from scratch, I'm not confident with my
+graphic design skills yet. A template gave me a solid design to learn from,
+and I'm still writing all the content myself, auditing the code and building
+the blog from scratch.
+
+### Problems I hit
+**Files moved into the wrong folder**
+I ran `mv Waldo/*` and forgot the `.` at the end. `mv` treats the last thing
+you give it as the destination, so instead of moving everything into my
+project, it moved all the files into the `js` folder. No error appeared. I
+fixed it by deleting the folder and copying the files again.
