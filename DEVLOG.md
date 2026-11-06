@@ -86,3 +86,42 @@ I ran `mv Waldo/*` and forgot the `.` at the end. `mv` treats the last thing
 you give it as the destination, so instead of moving everything into my
 project, it moved all the files into the `js` folder. No error appeared. I
 fixed it by deleting the folder and copying the files again.
+
+## Session 3 – 6 November 2026
+
+### What I did
+- Wrote my About section (the Lego analogy) and changed the badge to
+  "Open to internships & opportunities"
+- Added my Experience and Education sections
+- Changed my GitHub username from MrMando1618 to JoshuaMJRG
+- Decided how people will contact me through the site
+
+### What I learned
+- **`<span>` vs `<div>`.** Both are containers with no meaning of their own,
+  used as handles for CSS. A `div` is a block (new line, full width), and a
+  `span` sits inside a line of text.
+- **`&amp;`.** In HTML, `&` starts special character codes, so a plain `&`
+  should be written as `&amp;`. Not converting special characters properly is
+  the root of XSS attacks.
+- **Renaming a GitHub account isn't free.** Old repo links redirect, but my
+  old username is now available for anyone to register. If someone took it and
+  made a repo with the same name, old links would point to their code. This
+  is called repo-jacking, so I updated my links instead of relying on
+  redirects.
+
+### Privacy decisions
+- **Data minimisation:** I only show my expected graduation year for Monash
+  and left the dates off my school entirely. Together, those dates would
+  reveal roughly how old I am, and recruiters only need the graduation year.
+- **Tailoring:** I picked the four experiences that tell the best story for a
+  cyber role instead of copying my whole LinkedIn.
+- **Contact email:** I compared a lot of options. With free email forwarding,
+  my replies would come from the inbox the mail was forwarded to and reveal
+  that address. I'm going with my own domain plus Purelymail, so I can send
+  and receive from a professional address and set up the email security
+  records (SPF, DKIM, DMARC) myself.
+
+### Next
+- Buy a domain and set up email when I deploy
+- Skills section and the hero image
+- Self-host the Google Fonts
