@@ -125,3 +125,50 @@ fixed it by deleting the folder and copying the files again.
 - Buy a domain and set up email when I deploy
 - Skills section and the hero image
 - Self-host the Google Fonts
+
+## Session 4 – 8 November 2026: Soft Launch Day 🚀
+
+### What I did
+- Bought my domain, joshuagoh.dev, on Cloudflare
+- Set up professional email with Purelymail: joshua@joshuagoh.dev, with
+  hello@ as an alias for the website
+- Added my contact details, LinkedIn, GitHub and TryHackMe to the footer
+- Replaced the template's hero image and photos with my own
+- Removed unfinished sections and deployed the site with Cloudflare Pages
+- **The site is live at https://joshuagoh.dev**
+
+### What I learned
+- **Email security records.** I set up SPF (who's allowed to send as me),
+  DKIM (a digital signature on my emails) and DMARC (what to do with fakes),
+  then checked Gmail's "Show original": all three passed.
+- **Account security chain.** My Cloudflare account controls my domain,
+  website and email, so it has 2FA and recovers to my personal Gmail, never to
+  an address that depends on the domain itself.
+- **Metadata goes deeper than I thought.** I stripped the metadata from my
+  photos using Windows, but a check found the award photo still contained hidden
+  Canva data: my name, Canva user ID and my school's brand account. Windows'
+  tool only removes one type of metadata (EXIF), not the other (XMP). Saving
+  it as a fresh JPEG removed it. Lesson: always verify, don't assume.
+- **CSS specificity.** I tried hiding sections with HTML's `hidden` attribute,
+  but the template's CSS forced every `<section>` to display anyway. I ended up
+  deleting them instead. Git keeps the old code in history if I need it.
+- **Continuous deployment.** Every push to GitHub now automatically
+  redeploys my site within a minute.
+
+### Problems I hit
+**Build failed on Cloudflare.** I put `index.html` as the build output
+directory, but it wants a folder. Setting it to `/` fixed it.
+
+**A DKIM record on the wrong name.** I put `@` as the name for a DKIM record,
+which would have made my whole domain an alias of Purelymail's key. Cloudflare
+flagged the conflict, and I fixed the names.
+
+**Line endings.** Git showed my whole file as changed when I'd edited one
+line, because it switched from LF to CRLF line endings. A huge diff like that
+could hide a real change, so I switched it back.
+
+### Next
+- Skills section and my first project write-up (as a carousel)
+- My own favicon
+- Self-host the Google Fonts
+- Security headers
