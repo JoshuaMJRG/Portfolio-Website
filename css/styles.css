@@ -3822,8 +3822,8 @@ td:last-child {
     margin            : 0;
     -o-object-fit     : cover;
     object-fit        : cover;
-    -o-object-position: center;
-    object-position   : center;
+    -o-object-position: center top;
+    object-position   : center top;
     aspect-ratio      : 420/560;
 }
 
