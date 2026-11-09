@@ -1,7 +1,9 @@
 /*
+  # Force HTTPS for one year, including subdomains
   Strict-Transport-Security: max-age=31536000; includeSubDomains
+  # Stop other sites framing mine (clickjacking)
   X-Frame-Options: DENY
+  # Turn off browser features I never use
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 
-  'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; connect-src 'self' https://cloudflareinsights.com; 
-  object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'
+  # CSP: only load from my site, plus Google Fonts and Cloudflare Analytics 
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; connect-src 'self' https://cloudflareinsights.com; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'

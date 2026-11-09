@@ -110,17 +110,17 @@
    * color-1 (#c16b49)
    * color-2 (#588f5d)
    */
-    --color-1-50                  : #fbf6f1;
-    --color-1-100                 : #f5e9df;
-    --color-1-200                 : #ead0be;
-    --color-1-300                 : #dcb095;
-    --color-1-400                 : #cd8a6a;
-    --color-1-500                 : #c16b49;
-    --color-1-600                 : #b45b42;
-    --color-1-700                 : #964738;
-    --color-1-800                 : #793b33;
-    --color-1-900                 : #62332c;
-    --color-1-950                 : #351815;
+    --color-1-50                  : #f5f7fe;
+    --color-1-100                 : #e9eefc;
+    --color-1-200                 : #d0dcf9;
+    --color-1-300                 : #adc2f5;
+    --color-1-400                 : #7698ee;
+    --color-1-500                 : #3366e6;
+    --color-1-600                 : #2c58c9;
+    --color-1-700                 : #254aae;
+    --color-1-800                 : #1e3d93;
+    --color-1-900                 : #18307a;
+    --color-1-950                 : #122462;
     --color-1                     : var(--color-1-500);
 
     --color-2-50                  : #f4f9f5;
@@ -3472,7 +3472,7 @@ td:last-child {
     --content-padding-top   : var(--vspace-6);
     --content-padding-bottom: max(var(--vspace-5_5), 20vh);
 
-    background-image        : url(../images/intro-bg.png);
+    background-image        : radial-gradient(ellipse 55% 60% at 50% 0%, var(--color-1-200), transparent 70%);
     background-repeat       : no-repeat;
     background-position     : center top;
     background-size         : contain;
