@@ -172,3 +172,50 @@ could hide a real change, so I switched it back.
 - My own favicon
 - Self-host the Google Fonts
 - Security headers
+
+## Session 5 – 9 November 2026: Security hardening and a new look
+
+### What I did
+- Took my site's security grade from **D to A+** on securityheaders.com
+- Moved the last inline script into its own file so my Content Security
+  Policy could block inline JavaScript
+- Changed the colour scheme from the template's orange to blue, replaced the
+  background glow with CSS, and made my own "JG" favicon as an SVG
+- Replaced "Download CV" with a "Request my CV" email button
+- Fixed my intro, which promised projects and a blog that don't exist yet
+
+### What I learned
+- **HTTP response headers** are like labels on a parcel: instructions the
+  browser reads before opening the page.
+- **HSTS** makes browsers remember to only use HTTPS, so an attacker on public
+  Wi-Fi can't intercept that first unencrypted request (SSL stripping). I
+  worked out max-age myself: 60 × 60 × 24 × 365 = 31,536,000 seconds.
+- **Clickjacking**: an attacker hides a real site in an invisible frame under
+  a fake button. `X-Frame-Options: DENY` stops my site being framed.
+- **Permissions-Policy** turns off browser features I never use, like the
+  camera, microphone and location.
+- **Content Security Policy** is a whitelist of where scripts, styles and fonts
+  can load from, which blocks most XSS attacks.
+- **Colour contrast is accessibility.** The template's orange only had a 3.65:1
+  contrast ratio, which fails the 4.5:1 minimum for readable text. My new blue
+  passes at 4.77:1.
+
+### Problems I hit
+**An A+ that wasn't really an A+.** My CSP got split across three lines when
+I pasted it, so Cloudflare only read the first line, and Google Fonts was
+being blocked. securityheaders.com still gave me an A+, because it only checks
+that the headers exist, not that they work. Lesson: a passing scan isn't the
+same as being secure. Test it yourself (browser console, F12).
+
+**A typo that broke a script.** `src=""js/no-js.js"` had an extra quote, so
+the browser loaded nothing. One character again.
+
+### Decisions
+- **No public CV.** A PDF on a public repo stays in Git history forever, even
+  old versions. A "Request my CV" button means my CV isn't public, I can send
+  the latest version, and I know who's interested.
+
+### Next
+- LinkedIn launch post
+- Skills section and my first project (as a carousel)
+- Self-host the Google Fonts, then tighten my CSP
